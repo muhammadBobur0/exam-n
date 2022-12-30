@@ -21,11 +21,11 @@ export const  categoryController = (req, res)=>{
 
 
 export const  subcategoryController = (req, res)=>{
-  
   try {
+    let {id} = req.query
     let subcategory = read('subcategory')
-   return res.status(200).send(subcategory)
-    
+    if (id)  subcategory = subcategory.filter((category)=>category.subcategory_id == id )
+    return res.status(200).send(subcategory)
   } catch (error) {
     return res.status(404).send(error.message)
   }

@@ -1,4 +1,7 @@
 import { read, write } from "../utils/model.js"
+import jwt from '../utils/jwt.js';
+import { Hash } from '../utils/hash.js';
+
 
 
  export const  adminPadding = (req, res) => {
@@ -20,7 +23,7 @@ export  const usersapply = (req, res) => {
       let posts = read("posts")
       let { postId } = req.params
 
-      let post = posts.find(post => post.post_id == postId)
+      let post = posts.find(post => post.postId == postId)
 
       if (post.status == "pending") {
           post.status = "active"
@@ -40,7 +43,8 @@ export const usersreject = (req, res) => {
       let posts = read("posts")
       let { postId } = req.params
 
-      let post = posts.find(post => post.post_id == postId)
+      let post = posts.find(post => post.postId == postId)
+      
       if (post.status == "pending") {
           post.status = "rejected"
 
@@ -53,3 +57,26 @@ export const usersreject = (req, res) => {
       res.status(400).json({ status: 400, message: error.message })
   }
 }
+
+
+export const UserSign = (req, res) => {
+	try {
+		let { username, password } = req.body;
+
+		password = Hash(password);
+		let admins = read('admins');
+
+
+		let use = admins.find(
+			(user) => user.username == username && user.password == password
+		);
+
+		if (!use) {
+			throw Error("user not found")
+		}
+
+		res.status(200).send({ status: 200, token: jwt.sign(use.adminId) });
+	} catch (error) {
+		res.status(404).send({ status: 404, message: error.message });
+	}
+};

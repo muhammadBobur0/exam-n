@@ -1,8 +1,7 @@
 import { Router } from 'express';
 import { POST } from '../middleware/post.middelware.js';
-import UserSign from '../controllers/user.sing.controllers.js';
 import { checkToken } from '../utils/tokens.js';
-import { adminPadding , usersapply, usersreject} from '../controllers/admin.controller.js';
+import { adminPadding , usersapply, UserSign, usersreject} from '../controllers/admin.controller.js';
 
 const admin = Router();
 

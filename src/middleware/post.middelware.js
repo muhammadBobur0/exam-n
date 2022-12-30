@@ -12,9 +12,12 @@ export  const POST = (req, res, next) => {
       next()
       
     }
-    if(req.url == '/addPost' && req.method == "POST"){
-
-      let validate = schemaPosts.validate(req.body)
+    if(req.url == '/posts' && req.method == "POST"){
+      let validet = schemaPosts.validate(req.body)
+      
+      if(validet.error) throw new Error(validet.error)
+      
+      next()
       
     }
 

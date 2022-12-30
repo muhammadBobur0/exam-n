@@ -7,10 +7,16 @@ export const schemaSign = Joi.object({
 })
 
 export const schemaPosts  =  Joi.object({
-  subcategory_id: Joi.number().required(),
+
+  dateY : Joi.string().min(4).max(10).required(),
+  dateH: Joi.string().min(4).max(10).required(),
+  job : Joi.string().required(),
+  subcategory: Joi.number().required(),
+  type: Joi.string().required(),
+  fullname: Joi.string().required(),
+  phone: Joi.number().required(),
+  description: Joi.string().required(),
   title: Joi.string().min(5).max(100).required(),
-  body: Joi.string().min(50).max(1000).required(),
-  dataH: Joi.string().min(4).max(10).required(),
-  dateY: Joi.string().min(4).max(10).required(),
-  avatar: Joi.string().pattern(new RegExp(/\.(gif|jpe?g|png|webp)$/i))
+  text: Joi.string().min(50).max(1000).required()
+
 })

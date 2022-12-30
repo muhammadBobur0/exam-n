@@ -1,3 +1,24 @@
 [
-  
+    {
+        "title": "Alisher Isaevdan biznes va IT bo’yicha master klass",
+        "text": "Najot Ta'lim jamoasi o'z o'quvchilari uchun manfaatli bo'lgan musobaqalarni tashkil etishda davom etadi. Biz bu gal markazimizdagi uch soha vakillari, ya'ni UX/UI dizayner, frontend va backend dasturchilarni \"bir dasturxon atrofida\" to'plashga qaror qildik.",
+        "description": "Najot Ta'lim jamoasi o'z o'quvchilari uchun manfaatli bo'lgan musobaqalarni tashkil etishda davom etadi. Biz bu gal markazimizdagi uch soha vakillari, ya'ni UX/UI dizayner, frontend va backend dasturchilarni \"bir dasturxon atrofida\" to'plashga qaror qildik.",
+        "dateY": "17-01-2022",
+        "dateH": "15:00",
+        "subcategory": "1",
+        "type": "online",
+        "postImg": "16723857471061 (2).png",
+        "isDeleted": false,
+        "status": "active",
+        "count": 1,
+        "postId": 1,
+        "user": {
+            "fullname": "Alisher",
+            "phone": "+9998985200",
+            "job": "Tadbirkor"
+        },
+        "watched": [
+            "::1"
+        ]
+    }
 ]
