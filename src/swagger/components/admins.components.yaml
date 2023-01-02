@@ -1,0 +1,17 @@
+components:
+  schemas:
+    sign:
+      type: object
+      properties:
+        username:
+          type: string
+        password: 
+          type: string
+    response:
+      type: object
+      properties:
+        status:
+          type: integer
+        token:
+          type: string
+        

@@ -4,6 +4,7 @@ import path from 'path';
 
 let GET = (req, res) => {
 	let { type, subcategory, date, name } = req.query;
+	
 	name = name?.toLowerCase();
 	let posts = read('posts');
 	
@@ -16,6 +17,7 @@ let GET = (req, res) => {
 		let subcate = subcategory ? posts.subcategory == subcategory && posts.status != 'pending' && posts.status != 'rejected' : true;
 		let data = date ? posts.dateY == date && posts.status != 'pending' && posts.status != 'rejected' : true;
 		let username = name ? posts.user.fullname.includes(name) && posts.status != 'pending' && posts.status != 'rejected' : true;
+
 		return ofline && subcate && data && username;
 	});
 	
@@ -39,6 +41,8 @@ let NEWPOST = (req, res) => {
 			title,
 			text
 		} = req.body
+
+		subcategory = Number(subcategory)
 		
 		let { postImg } = req.files
 		

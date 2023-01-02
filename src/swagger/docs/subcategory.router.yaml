@@ -1,0 +1,31 @@
+/subcategory:
+  get:
+    tags:
+      - subCategory
+    responses:
+      "200":
+        description: all subCategory
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubcategoryGet"
+
+
+
+
+/view/{imageName}:
+  get:
+    tags:
+      - view:
+    operationAdminId: imageName
+    parameters:
+      - name: imageName
+        in: path
+    required: true
+    responses:
+      "200":
+        description: get Image
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/getImg"
