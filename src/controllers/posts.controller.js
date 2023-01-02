@@ -9,7 +9,8 @@ let GET = (req, res) => {
 	let posts = read('posts');
 	
 	posts = posts.filter((posts) => {
-		posts.user.fullname = posts.user.fullname.toLowerCase();
+		if(posts.status != 'rejected'){
+			posts.user.fullname = posts.user.fullname.toLowerCase();
 		let ofline = type
 		? posts.type == type && posts.status != 'pending' && posts.status != 'rejected'
 		: true;
@@ -19,6 +20,7 @@ let GET = (req, res) => {
 		let username = name ? posts.user.fullname.includes(name) && posts.status != 'pending' && posts.status != 'rejected' : true;
 
 		return ofline && subcate && data && username;
+		}
 	});
 	
 	res.status(200).send({ status: 200, data: posts });
