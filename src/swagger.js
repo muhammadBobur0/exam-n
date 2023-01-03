@@ -17,6 +17,15 @@ const swaggerDocs = swaggerJSDoc({
             default: PORT,
           },
         },
+      },
+      {
+        url: `https://imthon.onrender.com`,
+        variables: {
+          port: {
+            enum: [PORT],
+            default: PORT,
+          },
+        },
       }
     ],
 
